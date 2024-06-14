@@ -1,4 +1,4 @@
-package com.tuempresa.webservice;
+package com.tuempresa;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

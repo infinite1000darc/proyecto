@@ -1,4 +1,4 @@
-package com.tuempresa.webservice;
+package com.tuempresa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
