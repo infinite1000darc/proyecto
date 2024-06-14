@@ -1,4 +1,4 @@
-package com.tuempresa.webservice;
+package com.tuempresa;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

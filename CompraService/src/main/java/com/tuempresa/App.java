@@ -1,4 +1,4 @@
-package com.tuempresa.webservice;
+package com.tuempresa;
 
 /**
  * Hello world!
