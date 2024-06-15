@@ -1,0 +1,4 @@
+com\mycompany\serviciocompras\Compra.class
+com\mycompany\serviciocompras\Dao.class
+com\mycompany\serviciocompras\Conexion.class
+com\mycompany\serviciocompras\WSCompras.class
