@@ -35,15 +35,15 @@ public class WSCompras {
             @WebParam(name = "direccion") String direccion, 
             @WebParam(name = "rfc") String rfc,
             @WebParam(name = "nombreProducto") String nombreProducto, 
-            @WebParam(name = "cantidadProducto") String cantidadProducto,
-            @WebParam(name = "precioProducto") String precioProducto) {
+            @WebParam(name = "cantidadProducto") int cantidadProducto,
+            @WebParam(name = "precioProducto") float precioProducto) {
         
         int folio = 0;
         
         Dao dao = new Dao();
         Compra compra = new Compra(nombreCliente,email,direccion,rfc,nombreProducto,
-                Integer.getInteger(cantidadProducto),
-                Integer.getInteger(precioProducto));
+                cantidadProducto,
+                precioProducto);
         
         try {
             folio = dao.añadir(compra);
@@ -55,11 +55,11 @@ public class WSCompras {
     }
     
     @WebMethod(operationName = "EstadoCompraRequest")
-    public String EstadoCompraRequest(@WebParam(name = "folioSeguimiento") String folioSeguimiento){
+    public String EstadoCompraRequest(@WebParam(name = "folioSeguimiento") int folioSeguimiento){
         String estado = "";
         Dao dao = new Dao();
         try {
-            estado = dao.obtenerEstado(Integer.getInteger(folioSeguimiento));
+            estado = dao.obtenerEstado(folioSeguimiento);
         } catch (SQLException ex) {
             Logger.getLogger(WSCompras.class.getName()).log(Level.SEVERE, null, ex);
             estado = "compra no encontrada";
@@ -68,11 +68,11 @@ public class WSCompras {
     }
     
     @WebMethod(operationName = "cancelarCompra")
-    public String CancelarCompraRequest(@WebParam(name = "folioSeguimiento") String folioSeguimiento){
+    public String CancelarCompraRequest(@WebParam(name = "folioSeguimiento") int folioSeguimiento){
         String respuesta = "";
         Dao dao = new Dao();
         try {
-            dao.cancelarCompra(Integer.getInteger(folioSeguimiento));
+            dao.cancelarCompra(folioSeguimiento);
             respuesta = "compra" + folioSeguimiento + "cancelada.";
         } catch (SQLException ex) {
             Logger.getLogger(WSCompras.class.getName()).log(Level.SEVERE, null, ex);
